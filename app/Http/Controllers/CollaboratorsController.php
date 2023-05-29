@@ -57,7 +57,11 @@ class CollaboratorsController extends Controller
         }
 
         # Create new collaborator
-        $collaborator = Collaborator::create(request(['name', 'registration', 'cpf', 'schedule_id']));
+        try {
+            $collaborator = Collaborator::create(request(['name', 'registration', 'cpf', 'schedule_id']));
+        } catch (\Exception $e) {
+            abort(400, "Failed to register a collaborator");
+        }
 
         # Clear redis key collaborartosList
         Redis::set('collaborartosList', null);

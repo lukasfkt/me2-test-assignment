@@ -53,7 +53,11 @@ class ScheduleController extends Controller
         }
 
         # Create new Schedule
-        $schedule = Schedule::create(request(['name']));
+        try {
+            $schedule = Schedule::create(request(['name']));
+        } catch (\Exception $e) {
+            abort(400, "Failed to create a schedule");
+        }
 
         # Clear redis key scheduleList
         Redis::set('scheduleList', null);
