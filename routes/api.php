@@ -3,7 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CollaboratorsController;
 use App\Http\Controllers\ScheduleController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\PointRecordsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,6 +41,11 @@ Route::middleware('auth:api')->controller(ScheduleController::class)->prefix('sc
     # GET ROUTES
     Route::get('list', 'list');
 
+    # POST ROUTES
+    Route::post('store', 'store');
+});
+
+Route::middleware('auth:api')->controller(PointRecordsController::class)->prefix('pointRecords')->group(function () {
     # POST ROUTES
     Route::post('store', 'store');
 });
