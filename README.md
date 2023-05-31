@@ -130,10 +130,16 @@ Base URL: http://your-domain/api/pointRecords
 
 #### POST METHODS
 
+First, it is necessary to initialize the Laravel worker, using the command: `php artisan queue:work`.
+
 * Create new point record: `/store`
 
 > Params to be sent in the body
 `time(string format H:i)`,  `latitude(decimal)`, `longitude(decimal)` and `selfie(blob) [optional]` <br> Return Value:  `Reponse Status 201 or Reponse Status 400`
+
+### HOW QUEUE WORKS
+
+![How queue works](docs/images/queue_architecture.png)
 
 ## Contact
 
