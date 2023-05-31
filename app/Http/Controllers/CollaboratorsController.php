@@ -140,7 +140,7 @@ class CollaboratorsController extends Controller
         # Clear redis key collaborartosList
         Redis::set('collaborartosList', null);
 
-        return response("User updated", 200);
+        return response("User deleted", 200);
     }
 
     /**
