@@ -43,5 +43,40 @@ Start the local development server
 
 You can now access the server at http://localhost:80
 
-# Available Endpoints
+## Get Started
+
+To start using the api, you will first need to register.
+
+* Register End Point: http://your-domain/api/register
+
+> Params to be sent in the body
+`name(string)`, `email(string)` and  `password(string)`
+Return Value: `User Object or Reponse Status 400`
+
+After registering the user, you will need to login to authenticate.
+
+* Login End Point: http://your-domain/api/login
+
+> Params to be sent in the body
+`email(string)` and  `password(string)`
+Return Value: `Object with token or Reponse Status 401`
+
+The only public routes are registration and login. For the others, it will be necessary to use the Authorization header with the token returned by the login route.
+
+## Available Endpoints
+
+### Collaborators
+Base URL: http://your-domain/api/collaborators
+
+#### GET END POINTS:
+
+* List collaborators: `/list`
+
+> Return Value: `Array of Collaborators Object`
+
+* Search for a specific collaborator: `/search`
+
+> Parameters that can be sent in the query (all optional)
+`name(string)`, `registration(string)`, `cpf(string)` and `schedule_id(int)`
+Return Value: `Array of Collaborators Object`
 
