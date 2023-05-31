@@ -138,8 +138,10 @@ First, it is necessary to initialize the Laravel worker, using the command: `php
 `time(string format H:i)`,  `latitude(decimal)`, `longitude(decimal)` and `selfie(blob) [optional]` <br> Return Value:  `Reponse Status 201 or Reponse Status 400`
 
 ### HOW QUEUE WORKS
-
+ <br> 
+ 
 ![How queue works](docs/images/queue_architecture.png)
+
 
 ## Contact
 
