@@ -161,11 +161,6 @@ class CollaboratorsController extends Controller
         $cpf = request('cpf');
         $schedule_id = request('schedule_id');
 
-        if (!$name && !$registration && !$cpf && !$schedule_id) {
-            # Abort with status code 400 with messagem "Missing informations"
-            abort(400, "Missing informations");
-        }
-
         # Composed query - Add where according to received parameters
         $query = Collaborator::query();
         $query->when($name, function ($q, $name) {
