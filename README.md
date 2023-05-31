@@ -68,7 +68,7 @@ The only public routes are registration and login. For the others, it will be ne
 ### Collaborators
 Base URL: http://your-domain/api/collaborators
 
-#### GET END POINTS:
+#### GET METHODS
 
 * List collaborators: `/list`
 
@@ -80,3 +80,60 @@ Base URL: http://your-domain/api/collaborators
 `name(string)`, `registration(string)`, `cpf(string)` and `schedule_id(int)`
 Return Value: `Array of Collaborators Object`
 
+#### POST METHODS
+
+Before creating a collaborator, you will need to create a schedule to be able to assign it.
+
+* Create new Collaborador: `/store`
+
+> Params to be sent in the body
+`name(string)`, `registration(string)`, `cpf(string)` and  `schedule_id(int)`
+Return Value:  `Collaborator Object or Reponse Status 400`
+
+#### PUT METHODS
+
+* Edit exiting Collaborador: `/edit`
+
+> Params to be sent in the body
+`collaborator_id(int)`, `name(string)`, `registration(string)`, `cpf(string)` and  `schedule_id(int)`
+Return Value:  `Reponse Status 200 or Reponse Status 400`
+
+#### DELETE METHODS
+
+* Delete exiting Collaborador: `/delete`
+
+> Params to be sent in the body
+`collaborator_id(int)`
+Return Value:  `Reponse Status 200 or Reponse Status 400`
+
+### Schedule
+Base URL: http://your-domain/api/schedule
+
+#### GET METHODS
+
+* List schedule: `/list`
+
+> Return Value: `Array of Schedule Object`
+
+#### POST METHODS
+
+* List schedule: `/store`
+
+> Params to be sent in the body
+`name(string)`
+Return Value:  `Schedule Object or Reponse Status 400`
+
+### Point Records
+Base URL: http://your-domain/api/pointRecords
+
+#### POST METHODS
+
+* Create new point record: `/store`
+
+> Params to be sent in the body
+`time(string format H:i)`,  `latitude(decimal)`, `longitude(decimal)` and `selfie(blob) [optional]` <br> Return Value:  `Reponse Status 201 or Reponse Status 400`
+
+## Contact
+
+* Owner: Lucas Tanaka
+* Email: lucasfktanaka@gmail.com
