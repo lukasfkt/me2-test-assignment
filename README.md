@@ -45,6 +45,8 @@ You can now access the server at http://localhost:80
 
 ## Get Started
 
+To initialize the API just access the project folder and run the command: `./vendor/bin/sail up`. (For this you will need to have docker installed on your machine).
+
 To start using the api, you will first need to register.
 
 * Register End Point: http://your-domain/api/register
