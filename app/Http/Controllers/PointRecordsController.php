@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Jobs\InsertPointRecordsJob;
-use App\Models\PointRecord;
-use DateTime;
 use Exception;
 use Illuminate\Http\Request;
 
@@ -28,14 +26,19 @@ class PointRecordsController extends Controller
                 'time' => 'required',
                 'latitude' => 'required',
                 'longitude' => 'required',
+                'selfie' => 'image|mimes:png,jpg,jpeg|max:2048'
             ]);
         } catch (\Exception $e) {
             # Abort with status code 400 with error message missing some information
             abort(400, $e->getMessage());
         }
-
-        $point = request()->only(['time', 'latitude', 'longitude', 'selfie']);
-
+        $selfie = request('selfie');
+        $point = request()->only(['time', 'latitude', 'longitude']);
+        if ($selfie) {
+            $imageName = time() . '.'  . $selfie->extension();
+            $selfie->move(public_path('selfies'), $imageName);
+            $point['selfie'] = $imageName;
+        }
         try {
             # Inserts the creation of a new point record in the queue
             InsertPointRecordsJob::dispatch($point);
