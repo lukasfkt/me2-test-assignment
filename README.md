@@ -1,4 +1,4 @@
-## ME2 Test assignment for backend
+# ME2 Test assignment for backend
 <p>Project developed for the backend test of the company ME2 softwares.</p>
 
 ## Requirements
